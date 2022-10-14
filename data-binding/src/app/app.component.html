@@ -1,0 +1,21 @@
+<!-- <p>{{ title }}</p>
+
+<p>{{ 11 * 5 }}</p>
+
+<p>O resultado da some de 1 e 3 é {{somar(1,3)}}</p>
+
+<input [type]="tipoInput" [value]="title">
+<button (click)="mudarTipoDoInput()">
+  <img [src]="tipoOlho" alt="" width="12px">
+</button>
+ -->
+
+
+ <button></button>
+ <button></button>
+ <input type="number" placeholder="Digite o primeiro número"[(ngModel)]='n1' name="valor1">
+ <br>
+ <input type="number" placeholder="Digite o segundo número" [(ngModel)]='n2' name="valor2">
+ <p>
+  {{n1+n2}}
+ </p>
