@@ -1,0 +1,48 @@
+
+section{
+    background-color: orange;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.subt{
+    font-weight: bold;
+    font-size: larger;
+    background-color: black;
+    color: white;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.826) ;
+}
+
+.soma{
+    font-weight: bold;
+    font-size: larger;
+    background-color: black;
+    color: white;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.826) ;
+}
+
+.container{
+    background-color: orange;
+    position: relative;
+    margin: 300px;
+    height: 100px;
+    width: 100px;
+}
+
+.resp{
+    font-weight: bold;
+    font-size: larger;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

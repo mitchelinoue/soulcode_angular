@@ -17,12 +17,21 @@ export class AppComponent {
   n1: number = 0;
   n2: number = 0;
 
+  
+
   tipoInput: string = 'password';
   tipoOlho: string = 'https://cdn-icons-png.flaticon.com/512/4818/4818558.png';
 
+  n: number = 0;
+  
+  somar(){
+    this.n = this.n + 1
+    return this.n
+  }
 
-  somar(x: number, y: number){
-    return x + y
+  subtrair(){
+    this.n = this.n - 1
+    return this.n
   }
 
   mudarTipoDoInput(): void{
