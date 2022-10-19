@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "comunicacao-entre-componentes": {
+    "creditCard": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:class": {
@@ -38,7 +38,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/comunicacao-entre-componentes",
+            "outputPath": "dist/credit-card",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -48,14 +48,9 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.css"
             ],
-            "scripts": [
-              "node_modules/jquery/dist/jquery.js",
-              "node_modules/popper.js/dist/umd/popper.js",
-              "node_modules/bootstrap/dist/js/bootstrap.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -94,10 +89,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "comunicacao-entre-componentes:build:production"
+              "browserTarget": "creditCard:build:production"
             },
             "development": {
-              "browserTarget": "comunicacao-entre-componentes:build:development"
+              "browserTarget": "creditCard:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -105,7 +100,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "comunicacao-entre-componentes:build"
+            "browserTarget": "creditCard:build"
           }
         },
         "test": {
