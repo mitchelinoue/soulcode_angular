@@ -16,6 +16,14 @@ export class AppComponent {
 
   produtos: Produto[] = [];
 
+  
+
+  excluirProdutoArray(index: number){
+
+      this.produtos.splice(index, 1);
+    
+  }
+
   adicionarProduto(evento:any): void{
     console.log(evento)
     evento.preventDefault() //faz com que o comportamento padrão de um elemento HTML seja anulado

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Produto } from '../interfaces/produto';
 
 @Component({
@@ -8,6 +8,15 @@ import { Produto } from '../interfaces/produto';
 })
 export class ProdutoCardComponent implements OnInit {
 
+
+  @Output()
+  meuEvento: EventEmitter<any> = new EventEmitter<any>()
+  
+
+  excluirElemento(){
+    this.meuEvento.emit()
+  }
+
   @Input()
   prod: Produto = {
     descricao:'',
@@ -15,6 +24,16 @@ export class ProdutoCardComponent implements OnInit {
     imagem: '',
     nome: '',
     preco:0
+  }
+
+  mostrarProduto: boolean = true;
+
+  escondeProduto(){
+    if(this.mostrarProduto == false){
+      this.mostrarProduto = true;
+    } else {
+      this.mostrarProduto = false;
+    }
   }
 
   constructor() { }

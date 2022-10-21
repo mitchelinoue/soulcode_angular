@@ -4,4 +4,5 @@ export interface Produto{
     imagem: string
     descricao: string
     estoque:number
+    
 }

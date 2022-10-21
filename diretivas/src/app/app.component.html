@@ -31,6 +31,6 @@
   <section class="produto">
     <!-- <produto-card [prod]="p"></produto-card> -->
     <!-- ngFore serve para percorrer a lista dentro do HTML do seu componente -->
-    <produto-card *ngFor="let pr of produtos" [prod]="pr"></produto-card>
+    <produto-card *ngFor="let pr of produtos; let i = index" [prod]="pr" (meuEvento)="excluirProdutoArray(i)"></produto-card>
   </section>
 </main>
