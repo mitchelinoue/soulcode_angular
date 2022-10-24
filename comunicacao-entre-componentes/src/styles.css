@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+<<<<<<< HEAD
+=======
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    font-family: 'Hind Siliguri', sans-serif;
+}
+>>>>>>> dd0960815f52487d06b15ca49388e497d272a308

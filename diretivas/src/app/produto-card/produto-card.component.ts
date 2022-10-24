@@ -8,12 +8,22 @@ import { Produto } from '../interfaces/produto';
 })
 export class ProdutoCardComponent implements OnInit {
 
+<<<<<<< HEAD
   @Output()
   deletar: EventEmitter<any> = new EventEmitter<any>()
   
 
   excluirElemento(){
     this.deletar.emit()
+=======
+
+  @Output()
+  meuEvento: EventEmitter<any> = new EventEmitter<any>()
+  
+
+  excluirElemento(){
+    this.meuEvento.emit()
+>>>>>>> dd0960815f52487d06b15ca49388e497d272a308
   }
 
   @Input()
@@ -25,6 +35,7 @@ export class ProdutoCardComponent implements OnInit {
     preco:0
   }
 
+<<<<<<< HEAD
   constructor() { }
 
   mostrarProduto: boolean = true;
@@ -33,6 +44,20 @@ export class ProdutoCardComponent implements OnInit {
     this.mostrarProduto = !this.mostrarProduto
   }
 
+=======
+  mostrarProduto: boolean = true;
+
+  escondeProduto(){
+    if(this.mostrarProduto == false){
+      this.mostrarProduto = true;
+    } else {
+      this.mostrarProduto = false;
+    }
+  }
+
+  constructor() { }
+
+>>>>>>> dd0960815f52487d06b15ca49388e497d272a308
   ngOnInit(): void {
   }
 

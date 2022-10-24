@@ -18,7 +18,11 @@ export class AppComponent {
 
   
 
+<<<<<<< HEAD
   excluirProdutoArray(index: number):void{
+=======
+  excluirProdutoArray(index: number){
+>>>>>>> dd0960815f52487d06b15ca49388e497d272a308
 
       this.produtos.splice(index, 1);
     

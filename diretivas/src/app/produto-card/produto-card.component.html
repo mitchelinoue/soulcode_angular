@@ -2,7 +2,11 @@
     um elemento HTML ou componente apareça na sua tela ou não -->
 
 
+<<<<<<< HEAD
 <div class="card" *ngIf="mostrarProduto == true; else conteudoAlternativo">
+=======
+<div class="card" *ngIf="mostrarProduto == true">
+>>>>>>> dd0960815f52487d06b15ca49388e497d272a308
     <img [src]="prod.imagem" alt ="" class="card-image-top">
     <div class="card-body clearfix">
         <h5 class="card-title">{{ prod.nome }}</h5>
@@ -31,16 +35,26 @@
         <p class="card-text text-truncate">
             {{ prod.descricao }}
         </p>
+<<<<<<< HEAD
         <button class="btn btn-sm btn-danger flex" (click)="escondeMostraProduto()">
              <span class="align-text-bottom">Esconder produto</span>
         </button>
         
         <button class="btn btn-sm float-end" (click)="excluirElemento()">
             &times;
+=======
+        <button class="btn btn-sm btn-danger flex" (click)="escondeProduto()">
+             <span class="align-text-bottom">Esconder produto</span>
+        </button>
+        
+        <button class="btn btn-sucess float-end align-text-bottom" (click)="excluirElemento()">
+            x
+>>>>>>> dd0960815f52487d06b15ca49388e497d272a308
         </button>
     </div>
 </div>
 
+<<<<<<< HEAD
 <!--
     ng-template serve como um componente auxiliar que nos permite
     criar a estrutura 'else' de algum *ngIf
@@ -57,4 +71,12 @@
         </button>
     </div>
 </ng-template>
+=======
+<div class="card text-center p-3" *ngIf="mostrarProduto == false">
+    <h6>O produto {{prod.nome}} foi ocultado e não será mostrada aos usuários.</h6>
+<button class="btn btn-sm btn-danger d-flex justify-content-end" (click)="escondeProduto()">
+    Mostrar produto
+</button>
+</div>
+>>>>>>> dd0960815f52487d06b15ca49388e497d272a308
 
