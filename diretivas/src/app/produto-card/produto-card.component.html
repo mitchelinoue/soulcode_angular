@@ -1,0 +1,60 @@
+<!--ngIf serve para que a partir de uma determinada condição booleana,
+    um elemento HTML ou componente apareça na sua tela ou não -->
+
+
+<div class="card" *ngIf="mostrarProduto == true; else conteudoAlternativo">
+    <img [src]="prod.imagem" alt ="" class="card-image-top">
+    <div class="card-body clearfix">
+        <h5 class="card-title">{{ prod.nome }}</h5>
+        <h6 class="card-subtitle text-muted">R$ {{ prod.preco.toLocaleString('pt-br') }}</h6>
+        <!--
+            estoque:
+            menor ou igual a 10 -> vermelho
+            maior que 10 e menor ou igual a 30 -> amarelo
+            maior que 30 e menor que 100 -> azul
+            maior que 100 -> verde
+        -->
+        <!--
+            ngClass permite adicionar ou remover classes de um elemento a partir de condições booleanas
+        -->
+        <span 
+            class="badge mb-1" 
+            [ngClass]="{
+                'bg-danger': prod.estoque <= 10,
+                'bg-warning': prod.estoque > 10 && prod.estoque <= 30,
+                'bg-primary': prod.estoque > 30 && prod.estoque <= 100,
+                'bg-success': prod.estoque > 100
+            }"
+            >
+            {{ prod.estoque }} unidades restantes
+        </span>
+        <p class="card-text text-truncate">
+            {{ prod.descricao }}
+        </p>
+        <button class="btn btn-sm btn-danger flex" (click)="escondeMostraProduto()">
+             <span class="align-text-bottom">Esconder produto</span>
+        </button>
+        
+        <button class="btn btn-sm float-end" (click)="excluirElemento()">
+            &times;
+        </button>
+    </div>
+</div>
+
+<!--
+    ng-template serve como um componente auxiliar que nos permite
+    criar a estrutura 'else' de algum *ngIf
+
+    Por padrão, qualquer coisa que você coloque dentro do componente
+     aparecerá na sua tela. Para o conteúdo aparecer, você precisará 
+     criar um 'gatilho'
+-->
+<ng-template #conteudoAlternativo>
+    <div class="card text-center p-3"  >
+        <h6>O produto {{prod.nome}} foi ocultado e não será mostrada aos usuários.</h6>
+        <button class="btn btn-sm btn-danger" (click)="escondeMostraProduto()">
+            Mostrar produto
+        </button>
+    </div>
+</ng-template>
+
