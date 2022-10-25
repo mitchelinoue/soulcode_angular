@@ -1,0 +1,68 @@
+<div class="flex">
+  <mat-card class="card-form">
+    <mat-card-title>Cadastro de Usuários</mat-card-title>
+    <mat-card-content>
+      <form action="#" #userForm="ngForm">
+        <!--
+          informar que o formulário será validade pelo Template Driven Forms. 
+          O ngForm informa que o formulário utilizará o método de validação do Template Driven Forms
+        -->
+
+        <mat-form-field appearance="outline">
+          <mat-label for="Nome">Nome</mat-label>
+          <input
+            type="text"
+            name="nome"
+            id="nome"
+            matInput
+            [(ngModel)]="dadosUsuario.nome"
+            required
+            minlength="4"
+            #inputNome = "ngModel" 
+          />
+          <mat-error>
+            <p *ngIf="inputNome.touched && inputNome.invalid" style="color: red;">
+               <span *ngIf="inputNome.errors?.['minlength']">Caracteres insuficientes!!!</span>
+               <span *ngIf="inputNome.errors?.['required']">Este campo é obrigatório!!!</span>
+            </p>
+          </mat-error>
+
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Sobrenome</mat-label>
+          <input
+            type="text"
+            matInput
+            [(ngModel)]="dadosUsuario.sobrenome"
+            name="sobrenome"
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>E-mail</mat-label>
+          <input
+            type="email"
+            matInput
+            [(ngModel)]="dadosUsuario.email"
+            name="email"
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Senha</mat-label>
+          <input
+            type="password"
+            matInput
+            [(ngModel)]="dadosUsuario.senha"
+            name="senha"
+          />
+        </mat-form-field>
+
+        <button type="submit" mat-raised-button color="primary">
+          Cadastrar
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
