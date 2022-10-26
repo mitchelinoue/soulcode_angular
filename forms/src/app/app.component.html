@@ -2,31 +2,39 @@
   <mat-card class="card-form">
     <mat-card-title>Cadastro de Usuários</mat-card-title>
     <mat-card-content>
-      <form action="#" #userForm="ngForm">
-        <!--
+
+      <!--
           informar que o formulário será validade pelo Template Driven Forms. 
           O ngForm informa que o formulário utilizará o método de validação do Template Driven Forms
         -->
 
+      <form action="#" #userForm="ngForm" (ngSubmit)="enviarForm()">
+        
         <mat-form-field appearance="outline">
           <mat-label for="Nome">Nome</mat-label>
           <input
             type="text"
             name="nome"
-            id="nome"
             matInput
             [(ngModel)]="dadosUsuario.nome"
             required
             minlength="4"
-            #inputNome = "ngModel" 
+            #inputNome="ngModel" 
           />
           <mat-error>
-            <p *ngIf="inputNome.touched && inputNome.invalid" style="color: red;">
-               <span *ngIf="inputNome.errors?.['minlength']">Caracteres insuficientes!!!</span>
-               <span *ngIf="inputNome.errors?.['required']">Este campo é obrigatório!!!</span>
-            </p>
-          </mat-error>
+            
+            <!--getError() informa se o problema de validação está vindo de algum atributo de validação em específico-->
 
+            <!--1ª maneira-->
+            <span *ngIf="inputNome.getError('required')">Este campo é obrigatório</span>
+            <span *ngIf="inputNome.getError('minlength')">Este campo precisa possuir 4 caracteres no mínimo</span>
+           
+
+            <!--2ª maneira-->
+            <!-- <span *ngIf="inputNome.errors?.['minlength']">Caracteres insuficientes!!!</span>
+            <span *ngIf="inputNome.errors?.['required']">Este campo é obrigatório!!!</span> -->
+            
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
@@ -36,7 +44,14 @@
             matInput
             [(ngModel)]="dadosUsuario.sobrenome"
             name="sobrenome"
+            required
+            minlength="4"
+            #inputSobrenome="ngModel"
           />
+          <mat-error>
+            <span *ngIf="inputSobrenome.getError('required')">Este campo é obrigatório</span>
+            <span *ngIf="inputSobrenome.getError('minlength')">Este campo precisa possuir 4 caracteres no mínimo</span>
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
@@ -46,7 +61,14 @@
             matInput
             [(ngModel)]="dadosUsuario.email"
             name="email"
+            required
+            email
+            #inputEmail="ngModel"
           />
+          <mat-error>
+            <span *ngIf="inputEmail.getError('required')">Este campo é obrigatório</span>
+            <span *ngIf="inputEmail.getError('email')">É necessário que seja um e-mail</span>
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
@@ -56,13 +78,25 @@
             matInput
             [(ngModel)]="dadosUsuario.senha"
             name="senha"
+            required
+            minlength="8"
+            #inputSenha="ngModel"
           />
+          <mat-error>
+            <span *ngIf="inputSenha.getError('required')">Este campo é obrigatório</span>
+            <span *ngIf="inputSenha.getError('minlength')">Este campo precisa possuir 8 caracteres no mínimo</span>
+          </mat-error>
         </mat-form-field>
 
-        <button type="submit" mat-raised-button color="primary">
-          Cadastrar
-        </button>
+        <button 
+          type="submit" 
+          mat-raised-button color="primary"
+          [disabled]="userForm.invalid"
+        >Cadastrar</button>
+          <!--userForm é uma variável que está lá em cima na tag form e .invalid é um booleano que acusa quando algum item do formulario está invalido-->
       </form>
     </mat-card-content>
   </mat-card>
 </div>
+
+<app-reactive></app-reactive>
